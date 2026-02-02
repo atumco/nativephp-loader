@@ -1,0 +1,25 @@
+    var body: some View {
+        GeometryReader { geometry in
+            ZStack(alignment: {{ ALIGNMENT }}) {
+                {{ SWIFT_COLOR }}
+                    .ignoresSafeArea()
+
+                LottieView {
+                    try await DotLottieFile.named("{{ ANIMATION_NAME }}")
+                }
+                .looping()
+                .frame(
+                    width: geometry.size.width * {{ SIZE }},
+                    height: geometry.size.width * {{ SIZE }}
+                )
+                .opacity(animationOpacity)
+                .onAppear {
+                    withAnimation(.easeOut(duration: {{ FADE_IN_DURATION }})) {
+                        animationOpacity = 1
+                    }
+                }
+            }
+            .frame(maxWidth: .infinity, maxHeight: .infinity)
+        }
+        .ignoresSafeArea()
+    }

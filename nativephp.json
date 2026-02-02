@@ -1,0 +1,59 @@
+{
+    "name": "atum/nativephp-loader",
+    "version": "1.0.0",
+    "description": "A NativePHP Mobile plugin for an animated loading screen",
+    "namespace": "NativephpLoader",
+    "keywords": [],
+    "category": "utilities",
+    "license": "MIT",
+    "author": {
+        "name": "Atum Ventures Ltd",
+        "email": "you@example.com",
+        "url": "software@atumsoft.co.uk"
+    },
+    "platforms": [
+        "android",
+        "ios"
+    ],
+    "bridge_functions": [],
+    "android": {
+        "permissions": [],
+        "repositories": [],
+        "dependencies": {
+            "implementation": [
+                "com.airbnb.android:lottie-compose:6.7.1"
+            ]
+        },
+        "activities": [],
+        "services": [],
+        "receivers": [],
+        "providers": []
+    },
+    "ios": {
+        "permissions": [],
+        "repositories": [],
+        "dependencies": {
+            "swift_packages": [
+                {
+                    "url": "https://github.com/airbnb/lottie-spm.git",
+                    "version": "4.6.0",
+                    "products": ["Lottie"]
+                }
+            ],
+            "pods": []
+        }
+    },
+    "assets": {
+        "android": [],
+        "ios": []
+    },
+    "secrets": [],
+    "events": [
+        "Atum\\NativephpLoader\\Events\\NativephpLoaderCompleted"
+    ],
+    "service_provider": "Atum\\NativephpLoader\\NativephpLoaderServiceProvider",
+    "hooks": {
+        "pre_compile": "nativephp:nativephp-loader:pre-compile",
+        "copy_assets": "nativephp:nativephp-loader:copy-assets"
+    }
+}
