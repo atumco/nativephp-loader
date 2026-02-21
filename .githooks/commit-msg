@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+# Conventional Commits validation hook
+# https://www.conventionalcommits.org/
+
+commit_msg_file="$1"
+commit_msg=$(head -1 "$commit_msg_file")
+
+# Allow merge commits
+if echo "$commit_msg" | grep -qE '^Merge '; then
+    exit 0
+fi
+
+# Validate conventional commit format
+if ! echo "$commit_msg" | grep -qE '^(feat|fix|docs|style|refactor|perf|test|build|ci|chore|revert)(\(.+\))?!?: .+'; then
+    echo ""
+    echo "ERROR: Commit message does not follow Conventional Commits format."
+    echo ""
+    echo "  Expected: <type>[optional scope][!]: <description>"
+    echo ""
+    echo "  Types: feat, fix, docs, style, refactor, perf, test, build, ci, chore, revert"
+    echo ""
+    echo "  Examples:"
+    echo "    feat: add loading animation"
+    echo "    fix(ios): resolve animation timing"
+    echo "    feat!: redesign API surface"
+    echo "    chore(release): v1.2.0"
+    echo ""
+    echo "  Your message: $commit_msg"
+    echo ""
+    exit 1
+fi

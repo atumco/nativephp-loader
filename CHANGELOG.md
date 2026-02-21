@@ -12,3 +12,4 @@ All notable changes to this project will be documented in this file.
 - Pre-compile and copy-assets hook commands for NativePHP build pipeline
 - Publishable config and animation assets via `vendor:publish`
 - Environment variable configuration support
+
