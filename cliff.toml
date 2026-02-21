@@ -6,7 +6,7 @@ All notable changes to this project will be documented in this file.
 """
 body = """
 {%- macro remote_url() -%}
-  https://github.com/AturVin/nativephp-loader
+  https://github.com/atumco/nativephp-loader
 {%- endmacro -%}
 
 {% if version -%}
